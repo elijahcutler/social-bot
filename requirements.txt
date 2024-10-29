@@ -1,2 +1,2 @@
-py-cord.py
+py-cord
 audioop-lts
