@@ -11,7 +11,10 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install Docker client inside the container
-RUN apt-get update && apt-get install -y docker.io
+RUN apt-get update && \
+    apt-get -qy full-upgrade && \
+    apt-get install -qy curl && \
+    curl -sSL https://get.docker.com/ | sh
 
 # Run the bot when the container launches
 CMD ["python", "bot.py"]
